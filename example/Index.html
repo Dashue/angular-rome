@@ -8,13 +8,13 @@
   <link href='rome.css' rel='stylesheet' type='text/css' />
 </head>
 
-<body ng-app='app'>
+<body ng-app='app' ng-controller="AppCtrl">
 
   <div>
     <label>Inline</label>
     <br/>
     <div>
-      <date-picker ng-model="inlineDate"></date-picker>
+      <date-picker ng-model="inlineDate" options="options"></date-picker>
     </div>
     <br/>
     <span>Value: {{inlineDate || 'Please input inline date'}}</span>
@@ -26,14 +26,22 @@
     <label>Popup</label>
     <br/>
     <div>
-      <input date-picker ng-model="popupDate" />
+      <input date-picker ng-model="popupDate" options="options" />
     </div>
     <br/>
     <span>Value: {{popupDate || 'Please input popup date'}}</span>
   </div>
 
   <script type='text/javascript'>
-    angular.module('app', ['rome']);
+    angular.module('app', ['rome'])
+      .controller('AppCtrl', function($scope){
+
+        $scope.options ={
+          required: false,
+          weekStart:1,
+        }
+      });
+
   </script>
 </body>
 
