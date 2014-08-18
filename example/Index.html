@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://code.angularjs.org/1.2.20/angular.js"></script>
+  <script src="rome.js"></script>
+    <script src="../angular-rome.js"></script>
+  <link href='rome.css' rel='stylesheet' type='text/css' />
+</head>
+
+<body ng-app='app'>
+
+  <div>
+    <label>Inline</label>
+    <br/>
+    <div>
+      <date-picker ng-model="inlineDate"></date-picker>
+    </div>
+    <br/>
+    <span>Value: {{inlineDate || 'Please input inline date'}}</span>
+  </div>
+
+  <hr/>
+
+  <div>
+    <label>Popup</label>
+    <br/>
+    <div>
+      <input date-picker ng-model="popupDate" />
+    </div>
+    <br/>
+    <span>Value: {{popupDate || 'Please input popup date'}}</span>
+  </div>
+
+  <script type='text/javascript'>
+    angular.module('app', ['rome']);
+  </script>
+</body>
+
+</html>
